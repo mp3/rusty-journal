@@ -12,6 +12,7 @@ pub enum Action {
     position: usize,
   },
   List,
+  Clear,
 }
 
 #[derive(Debug, StructOpt)]

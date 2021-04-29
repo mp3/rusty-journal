@@ -91,3 +91,16 @@ pub fn list_tasks(journal_path: PathBuf) -> Result<()> {
 
   Ok(())
 }
+
+pub fn clear_tasks(journal_path: PathBuf) -> Result<()> {
+  let file = OpenOptions::new()
+    .read(true)
+    .write(true)
+    .open(journal_path)?;
+
+  file.set_len(0)?;
+  let tasks: Vec<Task> = Vec::new();
+  serde_json::to_writer(file, &tasks)?;
+
+  Ok(())
+}
