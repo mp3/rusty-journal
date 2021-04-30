@@ -26,6 +26,7 @@ fn main() -> anyhow::Result<()> {
 
     match action {
         Add { text } => tasks::add_task(journal_file, Task::new(text)),
+        Modify { position, text } => tasks::modify_task(journal_file, position, Task::new(text)),
         List => tasks::list_tasks(journal_file),
         Done { position } => tasks::complete_task(journal_file, position),
         Clear => tasks::clear_tasks(journal_file),
