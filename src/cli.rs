@@ -7,7 +7,7 @@ pub enum Action {
     #[structopt()]
     text: String,
   },
-  Modify {
+  Fix {
     #[structopt()]
     position: usize,
     text: String,

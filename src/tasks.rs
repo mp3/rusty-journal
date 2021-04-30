@@ -57,7 +57,7 @@ pub fn add_task(journal_path: PathBuf, task: Task) -> Result<()> {
   Ok(())
 }
 
-pub fn modify_task(journal_path: PathBuf, task_position: usize, task: Task) -> Result<()> {
+pub fn fix_task(journal_path: PathBuf, task_position: usize, task: Task) -> Result<()> {
   let file = OpenOptions::new()
     .read(true)
     .write(true)
