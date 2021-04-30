@@ -68,6 +68,7 @@ pub fn modify_task(journal_path: PathBuf, task_position: usize, task: Task) -> R
   if task_position == 0 || task_position > tasks.len() {
     return Err(Error::new(ErrorKind::InvalidInput, "Invalid Task ID"));
   }
+
   tasks[task_position - 1] = task;
   serde_json::to_writer(file, &tasks)?;
   Ok(())
