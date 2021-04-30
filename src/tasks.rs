@@ -70,6 +70,8 @@ pub fn modify_task(journal_path: PathBuf, task_position: usize, task: Task) -> R
   }
 
   tasks[task_position - 1] = task;
+
+  file.set_len(0)?;
   serde_json::to_writer(file, &tasks)?;
   Ok(())
 }
